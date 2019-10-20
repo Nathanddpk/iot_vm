@@ -15,22 +15,27 @@ function getdata(e) {
 
       //if(response.type === 'success') {
         response.feeds.forEach(function(data){
+          
+          var timestamp  = new Date(data.created_at);
+          var iSTtimeStamp = new Date(timestamp.getTime() +(330 + timestamp.getTimezoneOffset())*60000);
+          
+          
           if(data.field1 == 0){
-          output += `<li>Brake @ ${data.created_at}</li>`;
+          output += `<li>Brake @ ${iSTtimeStamp.toString().substring(0,24)}</li>`;
           }else if(data.field1 == 1){
-          output += `<li>Forward @ ${data.created_at}</li>`;
+          output += `<li>Forward @ ${iSTtimeStamp.toString().substring(0,24)}</li>`;
           }else if(data.field1 == 2){
-          output += `<li>Left @ ${data.created_at}</li>`;
+          output += `<li>Left @ ${iSTtimeStamp.toString().substring(0,24)}</li>`;
           }else if(data.field1 == 3){
-          output += `<li>Right @ ${data.created_at}</li>`;
+          output += `<li>Right @ ${iSTtimeStamp.toString().substring(0,24)}</li>`;
           }else if(data.field1 == 4){
-          output += `<li>Headlight ON @ ${data.created_at}</li>`;
+          output += `<li>Headlight ON @ ${iSTtimeStamp.toString().substring(0,24)}</li>`;
           }else if(data.field1 == 5){
-          output += `<li>Headlight OFF @ ${data.created_at}</li>`;
+          output += `<li>Headlight OFF @ ${iSTtimeStamp.toString().substring(0,24)}</li>`;
           }else if(data.field1 == 6){
-          output += `<li>Reverse @ ${data.created_at}</li>`;
+          output += `<li>Reverse @ ${iSTtimeStamp.toString().substring(0,24)}</li>`;
           }else if(data.field1 == 9){
-          output += `<li>Engine ON @ ${data.created_at}</li>`;
+          output += `<li>Engine ON @ ${iSTtimeStamp.toString().substring(0,24)}</li>`;
           }
         });
       document.querySelector('.data').innerHTML = output;
