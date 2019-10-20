@@ -27,6 +27,10 @@ function getdata(e) {
           output += `<li>Headlight ON @ ${data.created_at}</li>`;
           }else if(data.field1 == 5){
           output += `<li>Headlight OFF @ ${data.created_at}</li>`;
+          }else if(data.field1 == 6){
+          output += `<li>Reverse @ ${data.created_at}</li>`;
+          }else if(data.field1 == 9){
+          output += `<li>Engine ON @ ${data.created_at}</li>`;
           }
         });
       document.querySelector('.data').innerHTML = output;
